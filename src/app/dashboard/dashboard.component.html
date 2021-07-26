@@ -1,0 +1,73 @@
+<div class="main-container">
+  <form [formGroup]="dashboardForm" (ngSubmit)="onsubmit()">
+    <div class="row">
+      <div class="column">
+        <span class="col-25">page</span>
+        <input class="col-75" type="number" formControlName="page">
+      </div>
+      <div class="column">
+        <span class="col-25">pagesize</span>
+        <input class="col-75" type="number" formControlName="pageSize">
+      </div>
+      <div class="column">
+        <span class="col-25">fromdate</span>
+        <input class="col-75" type="date" formControlName="fromDate">
+      </div>
+    </div>
+    <div class="row">
+      <div class="column">
+        <span class="col-25">todate</span>
+        <input class="col-75" type="date" formControlName="toDate">
+      </div>
+      <div class="column">
+        <span class="col-25">order</span>
+        <!-- <input class="col-75" type="text" formControlName="order"> -->
+        <select class="col-75" (change)="selectChangeHandler($event)" formControlName="order">
+          <option value="desc" [selected]=true>desc</option>
+          <option value="asc">asc</option>
+       </select>
+      </div>
+      <div class="column">
+        <span class="col-25">min</span>
+        <input class="col-75" type="number" formControlName="min">
+      </div>  
+    </div>
+    <div class="row">
+      <div class="column">
+        <span class="col-25">max</span>
+        <input class="col-75" type="text" formControlName="max">
+      </div>
+      <div class="column">
+        <span class="col-25">sort</span>
+        <!-- <input class="col-75" type="text" formControlName="sort"> -->
+        <select class="col-75" (change)="selectChangeSort($event)" formControlName="sort">
+          <option value="activity" [selected]=true>activity</option>
+          <option value="votes">votes</option>
+          <option value="creation">creation</option>
+       </select>
+      </div>
+      <div class="column">
+        <span class="col-25">ids</span>
+        <input class="col-75" type="text" formControlName="quesIds">
+      </div>
+    </div>
+    <button type="submit">Submit</button>
+  </form>
+</div>
+<div>
+  <ngx-datatable class="material"
+  [rows]="rows" 
+  [columnMode] = "ColumnMode.force"
+  [rowHeight] = "50"
+  [headerHeight]="50"
+  [footerHeight]="50"
+  [limit]="10"
+  >
+  <ngx-datatable-column name="Creation Date" prop="creation_date"></ngx-datatable-column>
+  <ngx-datatable-column name="title" ></ngx-datatable-column>
+  <ngx-datatable-column name="View Count" prop="view_count"></ngx-datatable-column>
+  <ngx-datatable-column name="Account Id" prop="owner.account_id"></ngx-datatable-column>
+</ngx-datatable>
+</div>
+  
+  

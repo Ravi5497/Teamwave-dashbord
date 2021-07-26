@@ -1,0 +1,29 @@
+.main-container{
+    width: 100%;
+    
+}
+
+.row{
+    display: flex;
+    float: left;
+    width: 100%; 
+}
+.col-25{
+    float: left;
+    width: 25%;
+}
+.col-75{
+    float: left;
+    width: 75%;
+}
+
+.column{
+    float: left;
+    display: flex;
+    padding: 20px;
+    width: 20%;
+}
+
+button{
+    color: blue;
+}
